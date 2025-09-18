@@ -55,7 +55,7 @@
 
   <script>
     document.getElementById("formPegawai").addEventListener("submit", function(e){
-      e.preventDefault(); // biar form tidak reload halaman
+      e.preventDefault();
 
       let nama = document.getElementById("nama").value;
       let umur = document.getElementById("umur").value;
@@ -64,13 +64,16 @@
 
       // Hitung gaji pokok
       let gapok = 0;
-      if (jabatan === "Manager") gapok = 15000000;
-      else if (jabatan === "Asisten Manager") gapok = 10000000;
-      else if (jabatan === "Staff") gapok = 5000000;
+      if (jabatan == "Manager") 
+        gapok = 15000000;
+      else if (jabatan == "Asisten Manager") 
+        gapok = 10000000;
+      else if (jabatan == "Staff") 
+        gapok = 5000000;
 
       let tunjJabatan = 0.15 * gapok;
       let bpjs = 0.10 * gapok;
-      let tunjKeluarga = (status === "Menikah") ? 0.20 * gapok : 0;
+      let tunjKeluarga = (status == "Menikah") ? 0.20 * gapok : 0;
       let total = gapok + tunjJabatan + bpjs + tunjKeluarga;
 
       // Cetak ke tabel
